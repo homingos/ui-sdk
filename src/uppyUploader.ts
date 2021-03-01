@@ -95,7 +95,7 @@ const Uploader = ({
         result.successful.forEach(result => {
           callback(result);
         });
-        if (!isVideo && createPhotoToVideo) {
+        if (!isVideo && shouldCreatePhotoToVideo) {
           createPhotoToVideo();
         }
         uppy.close();
