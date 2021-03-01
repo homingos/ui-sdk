@@ -20,7 +20,7 @@ const Uploader = ({
     closeUploader,
     callback,
 }: {
-    closeDrawer: Function,
+    closeDrawer?: Function,
     resourceType: string,
     maxFiles: number,
     shouldCreatePhotoToVideo: Boolean,
@@ -31,15 +31,15 @@ const Uploader = ({
     AWSConfig: {url: string, token: string}
     callback: Function,
     imageDimensions: Function,
-    closeUploader: Function,
+    closeUploader?: Function,
     createPhotoToVideo: Function,
     uppyConfig: any
 }) => {
-    closeDrawer();
-    let isVideo = resourceType === "VIDEO";
-    let allowedFileTypes = isVideo ? whitedListedVideos : whitedListedImages;
-    let maxFileSize = isVideo ? 1000 * 1000 * 100 : 1000 * 1000 * 10;
-    let maxNumberOfFiles = maxFiles;
+    closeDrawer && closeDrawer();
+    const isVideo = resourceType === "VIDEO";
+    const allowedFileTypes = isVideo ? whitedListedVideos : whitedListedImages;
+    const maxFileSize = isVideo ? 1000 * 1000 * 100 : 1000 * 1000 * 10;
+    const maxNumberOfFiles = maxFiles;
     const minNumberOfFiles = isVideo || !shouldCreatePhotoToVideo ? 1 : 3;
     openUploader();
     setTimeout(() => clickBrowse(), 200);
@@ -99,7 +99,7 @@ const Uploader = ({
           createPhotoToVideo();
         }
         uppy.close();
-        closeUploader();
+        closeUploader && closeUploader();
       });
 };
 

@@ -1,4 +1,4 @@
-name: homingos-ui-sdk-cd
+name: Homingos UI SDK CD
 on:
   push:
     branches:
@@ -16,7 +16,7 @@ jobs:
         run: yarn
 
       - name: Build
-        run: ./build.sh
+        run: yarn run build
       
       - name:  'Automated Version Bump'
         uses:  'phips28/gh-action-bump-version@master'
