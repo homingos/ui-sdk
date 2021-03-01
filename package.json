@@ -1,6 +1,6 @@
 {
   "name": "@homingos/ui-sdk",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "SDK for UI development",
   "main": "dist/index_bundle.js",
   "scripts": {
