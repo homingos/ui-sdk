@@ -20,9 +20,9 @@ npm i @tap0212/homingos-ui-sdk
 ##### - Import
 .
 ```sh
-import HomingosSDk from "@tap0212/homingos-ui-sdk"
+import HomingosSDk from "@homingos/ui-sdk"
 or 
-const HomingoSDK = require("@tap0212/homingos-ui-sdk")
+const HomingoSDK = require("@homingos/ui-sdk")
 ```
 
 #### - USAGE
