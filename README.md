@@ -9,11 +9,11 @@
 ## Installtion 
 #### - Yarn
 ```sh
-yarn add @tap0212/homingos-ui-sdk
+yarn add @homingos/ui-sdk
 ```
 #### - NPM
 ```sh
-npm i @tap0212/homingos-ui-sdk
+npm i @homingos/ui-sdk
 ```
 ## How use?
 ### - Media uploader
