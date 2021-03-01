@@ -1,5 +1,5 @@
 {
-  "name": "@tap0212/homingos-ui-sdk",
+  "name": "@homingos/ui-sdk",
   "version": "1.0.8",
   "description": "SDK for UI development",
   "main": "dist/index_bundle.js",
