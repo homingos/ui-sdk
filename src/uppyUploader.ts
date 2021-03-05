@@ -19,7 +19,9 @@ const Uploader = ({
     createPhotoToVideo,
     closeUploader,
     callback,
-    setUppyInstance
+    setUppyInstance,
+    minNumberOfImages,
+    minNumberOfVideos
 }: {
     closeDrawer?: Function,
     resourceType: string,
@@ -35,14 +37,16 @@ const Uploader = ({
     closeUploader?: Function,
     createPhotoToVideo?: Function,
     uppyConfig: any
-    setUppyInstance: Function
+    setUppyInstance: Function,
+    minNumberOfImages: number,
+    minNumberOfVideos: number
 }) => {
     closeDrawer && closeDrawer();
     const isVideo = resourceType === "VIDEO";
     const allowedFileTypes = isVideo ? whitedListedVideos : whitedListedImages;
     const maxFileSize = isVideo ? 1000 * 1000 * 100 : 1000 * 1000 * 10;
     const maxNumberOfFiles = maxFiles;
-    const minNumberOfFiles = isVideo || !shouldCreatePhotoToVideo ? 1 : 3;
+    const minNumberOfFiles = isVideo || !shouldCreatePhotoToVideo ? minNumberOfVideos : minNumberOfImages;
     openUploader();
     setTimeout(() => clickBrowse(), 200);
     const uppy = Uppy({
