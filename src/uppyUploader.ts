@@ -20,8 +20,8 @@ const Uploader = ({
     closeUploader,
     callback,
     setUppyInstance,
-    minNumberOfImages,
-    minNumberOfVideos
+    minNumberOfImages = 1,
+    minNumberOfVideos = 1
 }: {
     closeDrawer?: Function,
     resourceType: string,
@@ -38,8 +38,8 @@ const Uploader = ({
     createPhotoToVideo?: Function,
     uppyConfig: any
     setUppyInstance: Function,
-    minNumberOfImages: number,
-    minNumberOfVideos: number
+    minNumberOfImages?: number,
+    minNumberOfVideos?: number
 }) => {
     closeDrawer && closeDrawer();
     const isVideo = resourceType === "VIDEO";
