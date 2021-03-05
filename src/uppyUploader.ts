@@ -19,6 +19,7 @@ const Uploader = ({
     createPhotoToVideo,
     closeUploader,
     callback,
+    setUppyInstance
 }: {
     closeDrawer?: Function,
     resourceType: string,
@@ -34,6 +35,7 @@ const Uploader = ({
     closeUploader?: Function,
     createPhotoToVideo?: Function,
     uppyConfig: any
+    setUppyInstance: Function
 }) => {
     closeDrawer && closeDrawer();
     const isVideo = resourceType === "VIDEO";
@@ -53,6 +55,7 @@ const Uploader = ({
             allowedFileTypes,
         },
     });
+    setUppyInstance(uppy)
     uppy.use(Dashboard, uppyConfig).use(AwsS3, {
         getUploadParameters(file: any) {
             console.log({file});
