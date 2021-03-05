@@ -30,9 +30,9 @@ const Uploader = ({
     clickBrowse: Function,
     AWSConfig: {url: string, token: string}
     callback: Function,
-    imageDimensions: Function,
+    imageDimensions?: Function,
     closeUploader?: Function,
-    createPhotoToVideo: Function,
+    createPhotoToVideo?: Function,
     uppyConfig: any
 }) => {
     closeDrawer && closeDrawer();
@@ -81,7 +81,7 @@ const Uploader = ({
                 console.log({data});
                 let urlSplit = data.data.resourceUrl.split("/");
                 let imageId = urlSplit[urlSplit.length - 1].split(".")[0];
-                imageDimensions(imageId, file, false);
+                imageDimensions && imageDimensions(imageId, file, false);
                 return {
                     method: "PUT",
                     url: data.data.uploadUrl,
