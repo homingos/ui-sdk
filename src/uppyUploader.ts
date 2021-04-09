@@ -46,7 +46,7 @@ const Uploader = ({
     closeDrawer && closeDrawer();
     const isVideo = resourceType === "VIDEO";
     const allowedFileTypes = isVideo ? whitedListedVideos : whitedListedImages;
-    const mfs = maxFileSize ? maxFileSize : isVideo ? 1000 * 1000 * 100 : 1000 * 1000 * 10;
+    const MFS = maxFileSize ? maxFileSize : isVideo ? 1000 * 1000 * 100 : 1000 * 1000 * 10;
     const maxNumberOfFiles = maxFiles;
     const minNumberOfFiles = isVideo || !shouldCreatePhotoToVideo ? minNumberOfVideos : minNumberOfImages;
     openUploader();
@@ -55,7 +55,7 @@ const Uploader = ({
         debug: true,
         autoProceed: true,
         restrictions: {
-            maxFileSize: mfs,
+            maxFileSize: MFS,
             maxNumberOfFiles,
             minNumberOfFiles,
             allowedFileTypes,
