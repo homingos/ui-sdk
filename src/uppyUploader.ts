@@ -21,7 +21,8 @@ const Uploader = ({
     callback,
     setUppyInstance,
     minNumberOfImages = 1,
-    minNumberOfVideos = 1
+    minNumberOfVideos = 1,
+    maxFileSize
 }: {
     closeDrawer?: Function,
     resourceType: string,
@@ -39,12 +40,13 @@ const Uploader = ({
     uppyConfig: any
     setUppyInstance: Function,
     minNumberOfImages?: number,
-    minNumberOfVideos?: number
+    minNumberOfVideos?: number,
+    maxFileSize?: number
 }) => {
     closeDrawer && closeDrawer();
     const isVideo = resourceType === "VIDEO";
     const allowedFileTypes = isVideo ? whitedListedVideos : whitedListedImages;
-    const maxFileSize = isVideo ? 1000 * 1000 * 100 : 1000 * 1000 * 10;
+    const mfs = maxFileSize ? maxFileSize : isVideo ? 1000 * 1000 * 100 : 1000 * 1000 * 10;
     const maxNumberOfFiles = maxFiles;
     const minNumberOfFiles = isVideo || !shouldCreatePhotoToVideo ? minNumberOfVideos : minNumberOfImages;
     openUploader();
@@ -53,7 +55,7 @@ const Uploader = ({
         debug: true,
         autoProceed: true,
         restrictions: {
-            maxFileSize,
+            maxFileSize: mfs,
             maxNumberOfFiles,
             minNumberOfFiles,
             allowedFileTypes,
