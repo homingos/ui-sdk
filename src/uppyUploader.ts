@@ -53,7 +53,7 @@ const Uploader = ({
     setTimeout(() => clickBrowse(), 200);
     const uppy = Uppy({
         debug: true,
-        autoProceed: true,
+        autoProceed: false,
         restrictions: {
             maxFileSize: MFS,
             maxNumberOfFiles,
